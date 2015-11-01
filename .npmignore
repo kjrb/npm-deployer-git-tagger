@@ -1,0 +1,9 @@
+*.tgz
+node_modules
+npm-debug.log
+src
+test
+gulpfile.js
+example.package.json
+jsconfig.json
+.eslintrc
