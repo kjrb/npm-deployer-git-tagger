@@ -14,7 +14,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "git+https://github.com/kjrb/npm-deployer-git-tagger.git"
   },
   "dependencies": {
     "shelljs": "^0.5.3",
