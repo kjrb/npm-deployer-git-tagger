@@ -8,3 +8,4 @@ to publish to npm and tag the corresponding git source
 * pass in branch name
 * remove dev dependency on minimatch when vso-task-lib will get fixed
 
+[Read more] (http://sim4all.com/blogging/?p=520)
