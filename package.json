@@ -1,6 +1,6 @@
 {
   "name": "npm-deployer-git-tagger",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Publishes to npm and creates a version tag in git repository.",
   "main": "index.js",
   "scripts": {

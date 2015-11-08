@@ -178,5 +178,63 @@ describe('npm deployer and git tagger', function () {
 		});		
 		
 	});	
+	
+	describe('verify that error thrown if npm publish does not succeed', function () {
+		
+		const commands = [];
+
+		const runner = {
+			exec: function(cmd, callback) {
+				commands.push(cmd);
+				if (cmd.indexOf('npm publish') > -1) {
+					callback(1, '  npm ERR! publish Failed PUT 402  ');
+				}
+				else {
+					return shellRunnerMock.exec(cmd, callback);
+				}
+			},
+			cd: function(cmd) {
+				return shellRunnerMock.cd(cmd);
+			}
+		};			
+		
+		chai.expect(function () {
+			worker.publishAndTagIfNewer({ shellRunner: runner, moduleInfo: info });
+		}).to.throw();	
+		
+		it('not all commands should have been executed', function () {
+			chai.expect(commands.length === 3).is.true;
+		});			
+		
+	});	
+	
+	describe('verify that error thrown if npm git tagging does not succeed', function () {
+
+		const commands = [];
+
+		const runner = {
+			exec: function (cmd, callback) {
+				commands.push(cmd);
+				if (cmd.indexOf('git push --tags') > -1) {
+					callback(1, '  failure  ');
+				}
+				else {
+					return shellRunnerMock.exec(cmd, callback);
+				}
+			},
+			cd: function (cmd) {
+				return shellRunnerMock.cd(cmd);
+			}
+		};
+
+		chai.expect(function () {
+			worker.publishAndTagIfNewer({ shellRunner: runner, moduleInfo: info });
+		}).to.throw();
+
+		it('not all commands should have been executed', function () {
+			chai.expect(commands.length === 5).is.true;
+		});
+
+	});	
 });
 
