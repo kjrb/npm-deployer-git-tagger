@@ -1,6 +1,6 @@
 {
   "name": "npm-deployer-git-tagger",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Publishes to npm and creates a version tag in git repository.",
   "main": "index.js",
   "scripts": {
@@ -17,10 +17,9 @@
     "url": "git+https://github.com/kjrb/npm-deployer-git-tagger.git"
   },
   "dependencies": {
-    "shelljs": "^0.5.3",
     "semver": "^5.0.3",
-    "minimatch": "^2.0.8",
-    "vso-task-lib": "^0.4.5"
+    "shelljs": "^0.5.3",
+    "vso-task-lib": "^0.5.4"
   },
   "devDependencies": {
     "babel": "^5.8.23",
@@ -28,7 +27,7 @@
     "mocha": "^2.3.3",
     "rimraf": "^2.4.3"
   },
-  "engines" : {
-     "node" : ">=4.1.0" 
-  } 
+  "engines": {
+    "node": ">=4.1.0"
+  }
 }
